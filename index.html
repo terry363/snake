@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="蛇之圖鑑：探索世界各地蛇類的特徵、棲地與知識。" />
+  <title>蛇之圖鑑｜Snake Atlas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="蛇之圖鑑首頁">
+      <span class="brand-mark">S</span>
+      <span>
+        <strong>蛇之圖鑑</strong>
+        <small>Snake Atlas</small>
+      </span>
+    </a>
+    <button class="menu-toggle" aria-label="開啟導覽選單" aria-expanded="false">☰</button>
+    <nav class="site-nav" aria-label="主要導覽">
+      <a href="#atlas">圖鑑</a>
+      <a href="#about">關於</a>
+      <a href="#extend">擴充方式</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">SPECIES FIELD GUIDE</p>
+        <h1>在鱗光與林影之間，<br>認識蛇的多樣世界。</h1>
+        <p class="hero-text">從雨林中的翠綠獵手，到沙漠中的沉默伏擊者。這是一座可以持續擴充的蛇類主題圖鑑，整合文字、圖片、HTML 互動作品與簡報內容。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#atlas">開始探索</a>
+          <a class="btn btn-ghost" href="#extend">查看擴充架構</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+        <div class="snake-line">〰</div>
+        <div class="hero-card">
+          <span>今日主題</span>
+          <strong>適應力</strong>
+          <p>蛇類遍布森林、草原、沙漠與水域，演化出驚人的生存策略。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="atlas">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">ATLAS</p>
+          <h2>蛇類條目</h2>
+        </div>
+        <label class="search-box">
+          <span>搜尋</span>
+          <input id="searchInput" type="search" placeholder="輸入名稱、棲地或特徵…" />
+        </label>
+      </div>
+
+      <div class="filter-row" role="group" aria-label="圖鑑篩選">
+        <button class="chip active" data-filter="all">全部</button>
+        <button class="chip" data-filter="forest">森林</button>
+        <button class="chip" data-filter="desert">沙漠</button>
+        <button class="chip" data-filter="wetland">濕地</button>
+      </div>
+
+      <div class="atlas-grid" id="atlasGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>找不到符合條件的蛇類條目。</p>
+    </section>
+
+    <section class="section feature-section" id="about">
+      <div>
+        <p class="eyebrow">WHY THIS ATLAS</p>
+        <h2>一個適合持續成長的內容框架</h2>
+      </div>
+      <div class="feature-grid">
+        <article><span>01</span><h3>模組化內容</h3><p>每個條目由一致的資料結構驅動，新增品種時不必重做版面。</p></article>
+        <article><span>02</span><h3>多媒體支援</h3><p>可加入圖像、文字、嵌入式 HTML 作品，也可連結或嵌入簡報。</p></article>
+        <article><span>03</span><h3>響應式設計</h3><p>卡片、導覽與內容視窗會依螢幕寬度調整，手機與桌機皆適用。</p></article>
+      </div>
+    </section>
+
+    <section class="section extend-section" id="extend">
+      <div class="extend-copy">
+        <p class="eyebrow">EXTENSIBLE</p>
+        <h2>新增一個條目，只需加入一筆資料</h2>
+        <p>網站資料集中在 <code>script.js</code> 的 <code>snakes</code> 陣列。複製一筆物件並修改名稱、圖片、介紹與媒體欄位，即可新增更多蛇種。</p>
+      </div>
+      <pre><code>{
+  name: "新蛇種",
+  scientific: "Scientific name",
+  habitat: "forest",
+  image: "assets/images/example.jpg",
+  description: "條目介紹",
+  htmlWork: "entries/example.html",
+  slides: "assets/slides/example.pdf"
+}</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>蛇之圖鑑 Snake Atlas · 靜態網站範例</p>
+    <a href="design.md">Design Guide</a>
+  </footer>
+
+  <dialog id="detailDialog" class="detail-dialog">
+    <button class="dialog-close" id="dialogClose" aria-label="關閉">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
